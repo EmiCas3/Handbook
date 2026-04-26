@@ -1,0 +1,71 @@
+\markdownRendererDocumentBegin
+\markdownRendererWarning{The `hybrid` option has been soft-deprecated.}{The `hybrid` option has been soft-deprecated.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Ordenamiento}\markdownRendererInterblockSeparator
+{}Por lo regular no es conveniente implementar une metodo de ordenamiento desde cero, durante una competencia, pro lo que se recomienda usar directamente la SLT.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Complejidad:} $O(n\log n)$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/7105389c354f91903a327e35a99e6711.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Operadores de Comparación}\markdownRendererInterblockSeparator
+{}La función $sort$ requiere de un operador de comparación, que para la gran mayoría de las estructuras STL ya viene implementada, pero esta se puede sobre escribir.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/8d411e6ab55ea4c7d51f67d47b447d9b.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}Se puede tambien sobrecargar el operador de comparación de la definición de la estructura.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/d183c1a3a4bd6c0d53bd6760bc95c261.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}Tambien se puede pasar una función callback cómo parametro.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/a16bdac59b9e09080b02f7a035af7e80.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingOne{Busqueda Binaria}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Encontrar un elemento k iterativamente\markdownRendererSoftLineBreak
+{}\markdownRendererStrongEmphasis{Complejidad} : $\log n$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/1c861c10e658f85011206fae48b62fa3.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Encontrar un elemento k recursivamente\markdownRendererSoftLineBreak
+{}\markdownRendererStrongEmphasis{Complejidad} : $\log n$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/0045c1bf148456d7d9dcdf0a4b5cd7aa.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Encontrar un elemento k con saltos de $\frac{n}{2^i}$\markdownRendererSoftLineBreak
+{}\markdownRendererStrongEmphasis{Complejidad} : $\log n$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/2b953d47cb51a908f981cd278d85a518.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Encontrar el valor mas grande que cumpla cierta condición cuando $x < k = false$ y $x \geq true$\markdownRendererSoftLineBreak
+{}\markdownRendererStrongEmphasis{Complejidad} : $\log n$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c7dc24c01da5a7b0620b22b846b64e4a.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Ejemplo:} Dadas $n$ tablas de longitudes $v[i]$, quieres cortar para obtener al menos $k$ piezas de longitud exacta $l$\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Entrada}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/6e0992c9cc8f2a21bc37f37fd8c87c1a.verbatim}{in}{in}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Salida}*\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/3644a684f98ea8fe223c713b77189a77.verbatim}{out}{out}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/0ba5f379b6bc5d5c51b81795d743c8df.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Busqueda Binaria con STL}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Verificar si existe}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/0408232946b78a78b04c5617e03b6579.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Encontrar indice}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/344906ca64afef5c0b855b03b633151c.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Primer valor que sea menor}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/502b3b3f2ed5ff933c539c809b6d58f8.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Primer valor que sea mayor}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/f9793c26d1eb5435a107f9aede5d4748.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingOne{Busqueda Ternaria}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Se usa cuando una función $f(x)$ es \markdownRendererStrongEmphasis{unimodal} (crece y luego decrece, o viceversa). Por ejemplo buscar el máximo en una función discreta.\markdownRendererSoftLineBreak
+{}\markdownRendererStrongEmphasis{Complejidad:} $O(\log n)$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/5ef9ec756edddce6107ebcd810f442fd.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Busqueda ternaria sobre reales}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Idea:} Se usa cuando f(x) es continua y unimodal (por ejemplo, funciones convexas o cóncavas).\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/1ad6ae2a45f8ceb72f870c1df2e5b642.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Ejemplo} Buscar el valor de $x$ que maximiza $f(x) = -(x-3)^2 + 9$ (máximo en $x = 3$):\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/6a1a0c8feb104a0329819b5c7cf07944.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

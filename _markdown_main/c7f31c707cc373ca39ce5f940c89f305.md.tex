@@ -1,0 +1,188 @@
+\markdownRendererDocumentBegin
+\markdownRendererWarning{The `hybrid` option has been soft-deprecated.}{The `hybrid` option has been soft-deprecated.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Grafos}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Terminologia}\markdownRendererInterblockSeparator
+{}\markdownRendererStrongEmphasis{Grafo:}\markdownRendererHardLineBreak
+{}Conjunto de nodos (vértices) conectados por aristas.\markdownRendererHardLineBreak
+{}La convención de nombres es $n =$ número de nodos y $m =$ número de aristas.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Camino:}\markdownRendererHardLineBreak
+{}Secuencia de nodos conectados por aristas. La longitud del camino es el número de aristas que lo componen.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Ciclo:}\markdownRendererHardLineBreak
+{}Camino que inicia y termina en el mismo nodo, por ejemplo $1 \to 3 \to 4 \to 1$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo conexo:}\markdownRendererHardLineBreak
+{}Existe un camino entre cualquier par de nodos. Si no lo hay, el grafo es disconexo.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Componentes:}\markdownRendererHardLineBreak
+{}Partes conexas e independientes de un grafo, por ejemplo ${1,2,3}, {4,5,6,7}, {8}$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Árbol:}\markdownRendererHardLineBreak
+{}Grafo conexo que no contiene ciclos, por ejemplo uno con $5$ nodos y $4$ aristas.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo dirigido:}\markdownRendererHardLineBreak
+{}Las aristas tienen una dirección $(u \to v)$, por ejemplo $3 \to 1 \to 2 \to 5$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo ponderado:}\markdownRendererHardLineBreak
+{}Cada arista tiene un peso o longitud, por ejemplo $1 \to 3 \to 4 \to 5$ con pesos $1 + 7 + 3 = 11$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Vecinos o adyacentes:}\markdownRendererHardLineBreak
+{}Nodos conectados directamente por una arista, por ejemplo los vecinos de $2$ son ${1,4,5}$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grado de un nodo:}\markdownRendererHardLineBreak
+{}Número de vecinos de un nodo, por ejemplo $\deg(2) = 3$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Suma de grados:}\markdownRendererHardLineBreak
+{}La suma de los grados en un grafo siempre es par: $\sum \deg(v) = 2m$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo regular:}\markdownRendererHardLineBreak
+{}Todos los nodos tienen el mismo grado $d$, por ejemplo $d = 3$ para todo nodo.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo completo:}\markdownRendererHardLineBreak
+{}Cada par de nodos está conectado por una arista, de modo que $\deg(v) = n - 1$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grado de entrada (indegree):}\markdownRendererHardLineBreak
+{}Número de aristas que llegan a un nodo, por ejemplo $\text{indegree}(2) = 2$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grado de salida (outdegree):}\markdownRendererHardLineBreak
+{}Número de aristas que salen de un nodo, por ejemplo $\text{outdegree}(2) = 1$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Grafo bipartito:}\markdownRendererHardLineBreak
+{}Sus nodos pueden colorearse con dos colores sin que adyacentes compartan color, por ejemplo $A = {1,3,5}$ y $B = {2,4,6}$.\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{Propiedad:}\markdownRendererHardLineBreak
+{}Un grafo es bipartito si y sólo si no tiene ciclos impares, es decir, $\text{bipartito} \Leftrightarrow \text{sin ciclos impares}$.\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Representaciones de Grafos}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Lista de Adyacencia}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Grafos No Ponderados}\markdownRendererInterblockSeparator
+{}En esta representación, cada nodo $x$ tiene una lista con los nodos a los que está conectado mediante una arista. Para grafos no dirigidos se puede guardar de la misma manera pero cada artista se guarda en ambos sentidos.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e14de789f9e625d99383b235c6346814.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingFour{Grafos Ponderados}\markdownRendererInterblockSeparator
+{}En este caso cada lista de nodos $u$ contiene pares de $v,w$ siempre que exista un camino entre $u$ y $v$ con peso $w$.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/64f7f6d65abdf938541e3ed9345e73d1.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}Con la lista de adyacencia nos permite de manera eficiente iterar sobre todos los nodos que estan conectados a un cierto nodo.\markdownRendererParagraphSeparator
+{}Para grafos no ponderados\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/61afa471761db54cd4dddbc61c13c193.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}Para grafos ponderados\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/ff7308f5aa22dcc952634b264f85f9de.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Matiz de Adyacencia}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Lista de Aristas}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/8839d38c8d34412001960ff47ebae9b8.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Recorridos de Grafos}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Depth First Search (DFS)}\markdownRendererInterblockSeparator
+{}La búsqueda en profundidad (DFS) es una técnica simple para recorrer grafos.\markdownRendererParagraphSeparator
+{}El algoritmo empieza en un nodo inicial y avanza hacia todos los nodos alcanzables desde él, siguiendo las aristas del grafo.\markdownRendererParagraphSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Recursivo}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/fd36c5707d20ec6c00eb48e85394a17a.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingFour{Iterativo}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/15d9936daf48798ffb256b72af9da928.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Breadth First Search (BFS)}\markdownRendererInterblockSeparator
+{}La búsqueda en anchura (BFS) recorre los nodos de un grafo en orden creciente de distancia desde el nodo inicial.\markdownRendererParagraphSeparator
+{}De esta forma, se puede calcular la distancia del nodo inicial a todos los demás.\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/4dfc62b8a6f9cb105b41808dd6ad006f.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Comprobaciones}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Conectividad}\markdownRendererInterblockSeparator
+{}Un grafo es conexo si existe un camino entre cualquier par de nodos. Para comprobarlo, basta iniciar desde un nodo y verificar si se puede llegar a todos los demás.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/078773dc94b65e21a7d59cbdce67c134.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Ciclos}\markdownRendererInterblockSeparator
+{}Un grafo tiene un ciclo si, al recorrerlo, encontramos un nodo cuyo vecino (distinto del anterior en el camino actual) ya fue visitado.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/a40b1cf3228812aaf4259c33c2a96a17.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Bipartito}\markdownRendererInterblockSeparator
+{}Un grafo es bipartito si sus nodos pueden colorearse con dos colores de forma que ningún par de nodos adyacentes tenga el mismo color.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/fbfbfb232d8f9d958d5bdc4f2a1fdbdd.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Camino más corto}\markdownRendererParagraphSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Dijkstra}\markdownRendererInterblockSeparator
+{}Dijkstra calcula las distancias más cortas desde un nodo inicial hasta todos los demás en un grafo con pesos no negativos.\markdownRendererParagraphSeparator
+{}En cada paso elige el nodo con menor distancia actual, lo marca como procesado y actualiza las distancias de sus vecinos si encuentra un camino más corto. El proceso termina cuando todos los nodos han sido procesados.\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c0ecb380f00c528373f340f75ec6d19f.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Bellman-Ford}\markdownRendererInterblockSeparator
+{}El algoritmo de Bellman–Ford calcula las distancias más cortas desde un nodo inicial incluso si existen aristas con pesos negativos.\markdownRendererParagraphSeparator
+{}Repite $n−1$ veces la relajación de todas las aristas, actualizando las distancias si encuentra un camino más corto. Si en una ronda adicional alguna distancia aún se reduce, significa que existe un ciclo negativo.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/0264730e111a9f2e5bcfb2be07d2b827.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Floyd-Warshall}\markdownRendererInterblockSeparator
+{}Floyd-Warshall encuentra las distancias mínimas entre todos los pares de nodos en un solo recorrido. Usa una matriz de distancias y en cada iteración permite que un nodo intermedio $k$ mejore las rutas existentes. Su simplicidad lo hace ideal para grafos pequeños donde $O(n^3)$ es aceptable.\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/1d201ca501025aa98415ae73828f7b47.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Topological Sort}\markdownRendererInterblockSeparator
+{}Topological sort ordena los nodos de un grafo dirigido de forma que si existe un camino de $a$ a $b$, entonces $a$ aparece antes que $b$ en la lista; existe solo si el grafo es acíclico.\markdownRendererHardLineBreak
+{}Se realiza con una búsqueda en profundidad (DFS) donde cada nodo tiene tres estados:\markdownRendererHardLineBreak
+{}$0$ = no visitado, $1$ = en proceso, $2$ = procesado.\markdownRendererParagraphSeparator
+{}Cuando un nodo pasa a estado $2$ se agrega a la lista; si durante la DFS se encuentra un nodo en estado $1$, se detecta un ciclo.\markdownRendererHardLineBreak
+{}Al final, la lista se invierte para obtener el orden topológico.  $O(n + m)$\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c83b179ba0aae052a4cba8681476f6bf.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Dynamic Programming for Graphs}\markdownRendererInterblockSeparator
+{}La programación dinámica en grafos permite responder preguntas sobre caminos en grafos dirigidos acíclicos, como el camino más corto o más largo entre dos nodos, el número total de caminos posibles o qué nodos aparecen en todos ellos.\markdownRendererParagraphSeparator
+{}Por ejemplo, para contar los caminos desde un nodo inicial a otro nodo, se define una función paths(x) que representa el número de caminos desde el nodo inicial hasta x.\markdownRendererParagraphSeparator
+{}Como caso base, paths(a) = 1, y para los demás nodos se cumple la relación:\markdownRendererHardLineBreak
+{}$$paths(x) = paths(s_1) + paths(s_2) + \cdots + paths(s_k)$$\markdownRendererHardLineBreak
+{}donde $s_1, s_2, …, s_k$ son los nodos con aristas hacia x.\markdownRendererParagraphSeparator
+{}Dado que el grafo es acíclico, estos valores pueden calcularse en el orden de un ordenamiento topológico.\markdownRendererHardLineBreak
+{}Esta técnica también se extiende para representar cualquier problema de programación dinámica como un grafo dirigido acíclico donde cada nodo representa un estado y las aristas indican dependencias entre estados.\markdownRendererHardLineBreak
+{}$$O(n + m)$$\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/8bbccfd706dee6cee38d1b780b6a1e61.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Succesor Graphs}\markdownRendererInterblockSeparator
+{}Los grafos sucesores (successor graphs) son grafos dirigidos donde cada nodo tiene exactamente un sucesor, formando componentes que consisten en un ciclo y caminos que llevan a él.\markdownRendererParagraphSeparator
+{}Se pueden representar mediante una función succ(x) que indica el sucesor de cada nodo.  Para calcular eficientemente el sucesor después de k pasos, se precalculan los valores succ(x, k) donde k es potencia de dos usando la recurrencia:\markdownRendererParagraphSeparator
+{}$$\markdownRendererSoftLineBreak
+{}succ(x, k) =\markdownRendererSoftLineBreak
+{}\begin{cases}\markdownRendererSoftLineBreak
+{}succ(x), & k = 1 \\\markdownRendererSoftLineBreak
+{}succ(succ(x, k/2), k/2), & k > 1\markdownRendererSoftLineBreak
+{}\end{cases}\markdownRendererSoftLineBreak
+{}$$\markdownRendererParagraphSeparator
+{}Esto permite calcular cualquier succ(x, k) descomponiendo k en sumas de potencias de dos, logrando un tiempo de $O(\log k)$ por consulta después de precalcular en $O(n \log u)$.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/45f652abf877600b7112d87e48ef3418.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Deteccion de Ciclos}\markdownRendererInterblockSeparator
+{}En un grafo sucesor que consiste en un camino que termina en un ciclo, podemos preguntar: dado un nodo inicial $x$, ¿cuál es el primer nodo del ciclo y cuántos nodos tiene el ciclo?\markdownRendererHardLineBreak
+{}Una forma eficiente de detectar el ciclo es el algoritmo de Floyd: usamos dos punteros, $a$ y $b$, que comienzan en el nodo inicial $x$; $a$ avanza un paso por turno y $b$ avanza dos pasos. Cuando se encuentran, sabemos que hay un ciclo.\markdownRendererParagraphSeparator
+{}Para encontrar el primer nodo del ciclo, movemos $a$ de nuevo al nodo inicial $x$ y avanzamos ambos punteros paso a paso hasta que se encuentren.\markdownRendererParagraphSeparator
+{}Finalmente, para obtener la longitud del ciclo, recorremos el ciclo desde ese nodo hasta volver a él, contando los nodos.\markdownRendererHardLineBreak
+{}$O(n)$ tiempo y $O(1)$ memoria.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/ba4e4bfe2fe92c6545e539faddf37c90.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Puentes}\markdownRendererInterblockSeparator
+{}Un puente en un grafo es una arista cuya eliminación dividiría el grafo en dos o más componentes conexas adicionales.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e6b8f4ebdbe55dc9ea464235d42984fb.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

@@ -1,0 +1,73 @@
+\markdownRendererDocumentBegin
+\markdownRendererWarning{The `hybrid` option has been soft-deprecated.}{The `hybrid` option has been soft-deprecated.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}\markdownRendererSectionBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Manipulación de Bits}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Operadores AND, OR y XOR}\markdownRendererInterblockSeparator
+{}\begin{mdtable2}\markdownRendererSoftLineBreak
+{}\rowcolor{headergray}\markdownRendererSoftLineBreak
+{}\textbf{Operación} & \textbf{Resultado}\tabularnewline\markdownRendererSoftLineBreak
+{}AND & Devuelve 1 solo si ambos bits son 1, 0 en otro caso\tabularnewline\markdownRendererSoftLineBreak
+{}OR  & Devuelve 1 si al menos un bit es 1, 0 si ambos son 0\tabularnewline\markdownRendererSoftLineBreak
+{}XOR & Devuelve 1 si los bits son diferentes, 0 si son iguales\tabularnewline\markdownRendererSoftLineBreak
+{}NOT & Invierte los bits: 1 → 0, 0 → 1\tabularnewline\markdownRendererSoftLineBreak
+{}Desplazamiento izquierda & Mueve los bits a la izquierda, agregando ceros a la derecha\tabularnewline\markdownRendererSoftLineBreak
+{}Desplazamiento derecha & Mueve los bits a la derecha, agregando ceros o unos según el tipo de dato\tabularnewline\end{mdtable2}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/9e507fe0940335f89c4b000dee781112.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Bitset}\markdownRendererInterblockSeparator
+{}Bitset es una estructura que permite una manipulación de bits más sencilla en cuestion de código y permite trabajar con cadenas de bits mayores a un long long int (64).\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e023b61b94bbd0af3e39aefc8675e809.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Entero a binario}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/3dad401ae096248e33c5ae46239b0726.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Binario a entero}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/620d940a29ab2531891a40a1eb29dfc6.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Mascara de bits}\markdownRendererInterblockSeparator
+{}Una máscara de bits de la forma 1 << k tiene un bit en 1 en la posición k y todos los demás bits en 0, por lo que podemos usar estas máscaras para acceder a bits individuales de los números. En particular, el k-ésimo bit de un número es 1 exactamente cuando \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (1 << k)} no es cero.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/7497c69c453955c0c273c637cb7d6fde.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Iterar sobre todas las mascasras de tamaño N}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e7c3a5a89eecc8d25197a2a2c686e747.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Propiedades}\markdownRendererParagraphSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem Comprobar si un número es par: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} 1}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Encender el $k$-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererPipe{} (1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Apagar el $k$-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} \markdownRendererTilde{}(1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Invertir el $k$-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererCircumflex{} (1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Poner a 0 el último bit en 1: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (x - 1)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Poner a 0 todos los bits en 1, excepto el último: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} -x}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Invertir todos los bits después del último bit en 1: \markdownRendererCodeSpan{x \markdownRendererPipe{} (x - 1)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Multiplicar por $2^n$:\markdownRendererCodeSpan{x << n}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Dividir por $2^n$:\markdownRendererCodeSpan{x >> n}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Comprobar si un número positivo es potencia de dos: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (x - 1) == 0}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Codigo de Gray}\markdownRendererInterblockSeparator
+{}El código Gray es un sistema numérico en el que los números consecutivos difieren en un solo bit.Cada\markdownRendererSoftLineBreak
+{}número en el código Gray se representa en binario, donde un bit cambia su estado entre números\markdownRendererSoftLineBreak
+{}consecutivos, lo que facilita la detección y corrección de errores.\markdownRendererParagraphSeparator
+{}Para convertir un número binario a código Gray, si definimos $X_2$ de $N$ bits como $B_{N-1}$, $B_{N-2}$,\markdownRendererSoftLineBreak
+{}$B_{N-3}$, \markdownRendererEllipsis{}, $B_0$ y su código de Gray como $G_{N-1}$, $G_{N-2}$, $G_{N-3}$, \markdownRendererEllipsis{}, $G_0$, entonces:\markdownRendererParagraphSeparator
+{}$G_n = B_n \text{ para } n = N-1 $ $G_i = G_{i+1} \oplus B_i \text{para } i = N-2, N-3, \ldots, 0$\markdownRendererParagraphSeparator
+{}Por ejemplo, si $10_2 = 1010$, donde $B_3 = 1$, $B_2 = 0$, $B_1 = 1$ y $B_0 = 0$, entonces:\markdownRendererSoftLineBreak
+{}$G_3 = B_3 = 1$ $G_2 = G_3 \oplus B_2 = 1 \oplus 0 = 1$ $G_1 = G_2 \oplus B_1 = 0 \oplus 1 = 1$ $G_0 =\markdownRendererSoftLineBreak
+{}G_1 \oplus B_0 = 1 \oplus 0 = 1$\markdownRendererSoftLineBreak
+{}Es decir, convertir el número binario $1010$ a código de Gray daría como resultado $1111$, y $Gray(10) =\markdownRendererSoftLineBreak
+{}15$.\markdownRendererParagraphSeparator
+{}$Gray(n) = n \oplus (n \gg 1)$\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/3b4637360844de4975c204e79c25e7d1.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

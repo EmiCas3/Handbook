@@ -1,0 +1,34 @@
+\markdownRendererDocumentBegin
+\markdownRendererWarning{The `hybrid` option has been soft-deprecated.}{The `hybrid` option has been soft-deprecated.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}{Consider using one of the following better options for mixing TeX and markdown: `contentBlocks`, `rawAttribute`, `texComments`, `texMathDollars`, `texMathSingleBackslash`, and `texMathDoubleBackslash`. For more information, see the user manual at <https://witiko.github.io/markdown/>.}\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Minimum Spanning Tree}\markdownRendererInterblockSeparator
+{}Un árbol generador (spanning tree) contiene todos los nodos de un grafo y algunas de sus aristas de modo que exista un camino entre cualquier par de nodos.\markdownRendererParagraphSeparator
+{}Un árbol generador mínimo (minimum spanning tree, MST) es aquel cuyo peso total de aristas es el menor posible, mientras que un árbol generador máximo tiene el peso total mayor.\markdownRendererParagraphSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Union-Find / Disjoint Sets}\markdownRendererInterblockSeparator
+{}La estructura Union-Find mantiene conjuntos disjuntos y permite unir conjuntos y encontrar el representante de un elemento en $O(\log n)$ tiempo.\markdownRendererParagraphSeparator
+{}Cada conjunto tiene un representante y los elementos apuntan a él siguiendo un camino. Al unir conjuntos, siempre se conecta el representante del conjunto más pequeño al del más grande para mantener los caminos cortos.\markdownRendererParagraphSeparator
+{}Con compresión de caminos (path compression), cada elemento apunta directamente a su representante tras una búsqueda, logrando operaciones en tiempo amortizado $O(\alpha(n))$, donde $\alpha$ es la inversa de Ackermann.\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/84c654dae8433d0f56646766308e7349.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Kruskal}\markdownRendererInterblockSeparator
+{}Kruskal construye un MST usando un enfoque greedy: primero ordena las aristas por peso y luego agrega cada arista que une dos componentes distintas. Esto garantiza que no se formen ciclos y que siempre se agreguen las aristas de menor peso primero, asegurando la optimalidad del MST.\markdownRendererParagraphSeparator
+{}Para implementar eficientemente las funciones same (verificar si dos nodos $a$ y $b$ están en la misma componente) y unite (unir componentes), se usa la estructura union-find o disjoint set, que permite ejecutar ambas operaciones en $O(\log n)$.\markdownRendererHardLineBreak
+{}El tiempo total de Kruskal es $O(m \log m)$ para ordenar las aristas y $O(m \log n)$ para procesarlas usando union-find.\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/2fd96803a0bd9928b0adcd75072b128a.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}$\clearpage$\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Prim}\markdownRendererInterblockSeparator
+{}Prim’s algorithm construye un árbol de expansión mínima agregando nodos uno por uno.\markdownRendererHardLineBreak
+{}Se inicia con un nodo arbitrario y, en cada paso, se elige la arista de menor peso que conecta un nodo ya incluido con uno fuera del árbol.\markdownRendererParagraphSeparator
+{}El proceso continúa hasta que todos los nodos estén agregados, asegurando que el árbol resultante sea mínimo.\markdownRendererParagraphSeparator
+{}La implementación eficiente usa una cola de prioridad que contiene todas las aristas que pueden agregar un nodo nuevo, ordenadas por peso.\markdownRendererParagraphSeparator
+{}En cada iteración se extrae la arista más ligera, se agrega al árbol si conecta nodos distintos y se actualizan las posibles aristas siguientes.\markdownRendererParagraphSeparator
+{}El algoritmo tiene complejidad $O(n + m \log m)$ y produce el mismo resultado que Kruskal, aunque puede ser más práctico para grafos densos o cuando se conoce un nodo inicial.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/9e9587cf3c06caef3e751cf80f4fe13a.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

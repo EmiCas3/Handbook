@@ -1,0 +1,124 @@
+\markdownRendererDocumentBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Combinatoria}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Definición general}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{} = \markdownRendererBackslash{}frac\markdownRendererLeftBrace{}n!\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k!(n-k)!\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/dc921dcd7b285664219d374d9d739899.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Fórmula Recursiva}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{} =\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}begin\markdownRendererLeftBrace{}cases\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}1, \markdownRendererAmpersand{} \markdownRendererBackslash{}text\markdownRendererLeftBrace{}si \markdownRendererRightBrace{} k = 0 \markdownRendererBackslash{}text\markdownRendererLeftBrace{} o \markdownRendererRightBrace{} k = n, \markdownRendererBackslash{}\markdownRendererBackslash{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n-1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k-1\markdownRendererRightBrace{} + \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n-1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{}, \markdownRendererAmpersand{} \markdownRendererBackslash{}text\markdownRendererLeftBrace{}en otro caso.\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}end\markdownRendererLeftBrace{}cases\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/f5ea77b6b257a656d8d587f1c5edc8e8.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Obtener todas combianciones}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/701edcb401ee47d39b8910cea2ff36bf.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererBackslash{}clearpage\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingOne{Permutaciones}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Definición general}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}P(n, k) = \markdownRendererBackslash{}frac\markdownRendererLeftBrace{}n!\markdownRendererRightBrace{}\markdownRendererLeftBrace{}(n-k)!\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/ad3823e1e6a8f53d253b03d023374842.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Forma recursiva}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}P(n, k) =\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}begin\markdownRendererLeftBrace{}cases\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}1, \markdownRendererAmpersand{} \markdownRendererBackslash{}text\markdownRendererLeftBrace{}si \markdownRendererRightBrace{} k = 0, \markdownRendererBackslash{}\markdownRendererBackslash{}\markdownRendererSoftLineBreak
+{}n \markdownRendererBackslash{}cdot P(n-1, k-1), \markdownRendererAmpersand{} \markdownRendererBackslash{}text\markdownRendererLeftBrace{}en otro caso.\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}end\markdownRendererLeftBrace{}cases\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/ed43252b4008661d2a17aa7c8021958e.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Obtener todas combianciones}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/dbe1debe849078d276bfac8841ee11df.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererBackslash{}clearpage\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingOne{Propiedades de Combinatoria y Permutaicones}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Teorema Binomial}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}(a + b)\markdownRendererCircumflex{}n = \markdownRendererBackslash{}sum\markdownRendererUnderscore{}\markdownRendererLeftBrace{}k=0\markdownRendererRightBrace{}\markdownRendererCircumflex{}\markdownRendererLeftBrace{}n\markdownRendererRightBrace{} \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{} a\markdownRendererCircumflex{}\markdownRendererLeftBrace{}n-k\markdownRendererRightBrace{} b\markdownRendererCircumflex{}k\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/a757d6596d325d5d358e74e15d00d365.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}sum\markdownRendererUnderscore{}\markdownRendererLeftBrace{}k=0\markdownRendererRightBrace{}\markdownRendererCircumflex{}\markdownRendererLeftBrace{}n\markdownRendererRightBrace{} \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{} = 2\markdownRendererCircumflex{}n\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/798f0e5997c152ffd70bb6f6f564e407.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}P(n, k) = k! \markdownRendererBackslash{}cdot \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}k\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/0a17c29370c6471a841fc22719567610.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}P(n+1, k) = (n+1) \markdownRendererBackslash{}cdot P(n, k-1)\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererParagraphSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/d26fe020991e623a7d493ee2d5345071.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Palo de Hockey}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}binom\markdownRendererLeftBrace{}r\markdownRendererRightBrace{}\markdownRendererLeftBrace{}r\markdownRendererRightBrace{} + \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}r+1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}r\markdownRendererRightBrace{} + \markdownRendererBackslash{}cdots + \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}r\markdownRendererRightBrace{} = \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}n+1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}r+1\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/fa6643b7c839d354792debc4671a55ea.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Números de Catalán}\markdownRendererInterblockSeparator
+{}Los números de Catalán se definen como:\markdownRendererParagraphSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}C\markdownRendererUnderscore{}n = \markdownRendererBackslash{}frac\markdownRendererLeftBrace{}1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}n+1\markdownRendererRightBrace{} \markdownRendererBackslash{}binom\markdownRendererLeftBrace{}2n\markdownRendererRightBrace{}\markdownRendererLeftBrace{}n\markdownRendererRightBrace{} = \markdownRendererBackslash{}frac\markdownRendererLeftBrace{}(2n)!\markdownRendererRightBrace{}\markdownRendererLeftBrace{}(n+1)! , n!\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/bbabcfe2da9687d6e3e3ac5e6bfd9690.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingOne{Principio de Inclusión - Exclusión}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Dos conjuntos}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererPipe{}A \markdownRendererBackslash{}cup B\markdownRendererPipe{} = \markdownRendererPipe{}A\markdownRendererPipe{} + \markdownRendererPipe{}B\markdownRendererPipe{} - \markdownRendererPipe{}A \markdownRendererBackslash{}cap B\markdownRendererPipe{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/2976b9123c175b4235964019c816f40d.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Tres conjuntos}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e7ccfa1a53a454071db1bfd8d5739ca3.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Caso general}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}\markdownRendererPipe{}X\markdownRendererUnderscore{}1 \markdownRendererBackslash{}cup X\markdownRendererUnderscore{}2 \markdownRendererBackslash{}cup \markdownRendererBackslash{}dots \markdownRendererBackslash{}cup X\markdownRendererUnderscore{}n\markdownRendererPipe{} = \markdownRendererBackslash{}sum\markdownRendererUnderscore{}\markdownRendererLeftBrace{}\markdownRendererBackslash{}emptyset \markdownRendererBackslash{}neq S \markdownRendererBackslash{}subseteq \markdownRendererLeftBrace{}1, \markdownRendererBackslash{}dots, n\markdownRendererRightBrace{}\markdownRendererRightBrace{} (-1)\markdownRendererCircumflex{}\markdownRendererLeftBrace{}\markdownRendererPipe{}S\markdownRendererPipe{}+1\markdownRendererRightBrace{} \markdownRendererBackslash{}left\markdownRendererPipe{} \markdownRendererBackslash{}bigcap\markdownRendererUnderscore{}\markdownRendererLeftBrace{}i \markdownRendererBackslash{}in S\markdownRendererRightBrace{} X\markdownRendererUnderscore{}i \markdownRendererBackslash{}right\markdownRendererPipe{}\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/54ed784195ba4917456cacfe9e211e1f.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Derangements (Desarreglos)}\markdownRendererInterblockSeparator
+{}Número de permutaciones sin elementos en su posición original:\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/2ff427ee368d86974de50649ccee76a2.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Burnside’s Lemma}\markdownRendererInterblockSeparator
+{}Número de combinaciones distintas considerando simetrías, donde \markdownRendererDollarSign{}c(k)\markdownRendererDollarSign{} es el número de combinaciones fijas por la k-ésima simetría.\markdownRendererParagraphSeparator
+{}\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererBackslash{}text\markdownRendererLeftBrace{}\markdownRendererHash{}distinct\markdownRendererRightBrace{} = \markdownRendererBackslash{}frac\markdownRendererLeftBrace{}1\markdownRendererRightBrace{}\markdownRendererLeftBrace{}n\markdownRendererRightBrace{} \markdownRendererBackslash{}sum\markdownRendererUnderscore{}\markdownRendererLeftBrace{}k=0\markdownRendererRightBrace{}\markdownRendererCircumflex{}\markdownRendererLeftBrace{}n-1\markdownRendererRightBrace{} c(k)\markdownRendererDollarSign{}\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/8c99d767287f5f17d65141cca2732966.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

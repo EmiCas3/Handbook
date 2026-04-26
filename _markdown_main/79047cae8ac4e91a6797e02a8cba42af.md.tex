@@ -1,0 +1,53 @@
+\markdownRendererDocumentBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Introducción a la Programación Competitiva}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Veredictos}\markdownRendererInterblockSeparator
+{}\markdownRendererBackslash{}begin\markdownRendererLeftBrace{}mdtable3\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}rowcolor\markdownRendererLeftBrace{}headergray\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Código\markdownRendererRightBrace{} \markdownRendererAmpersand{} \markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Sinónimo\markdownRendererRightBrace{} \markdownRendererAmpersand{} \markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Posible explicación\markdownRendererRightBrace{}\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}CE \markdownRendererAmpersand{} Compilation Error \markdownRendererAmpersand{} Error de sintaxis, faltan librerías o tipos mal definidos.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}RTE \markdownRendererAmpersand{} Run Time Error \markdownRendererAmpersand{} Acceso a memoria inválida, división entre cero, etc.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}TLE \markdownRendererAmpersand{} Time Limit Exceeded \markdownRendererAmpersand{} Algoritmo ineficiente o bucle infinito.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}MLE \markdownRendererAmpersand{} Memory Limit Exceeded \markdownRendererAmpersand{} Uso excesivo de arrays o estructuras grandes.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}WA \markdownRendererAmpersand{} Wrong Answer \markdownRendererAmpersand{} Lógica incorrecta o caso no cubierto.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}OLE \markdownRendererAmpersand{} Output Limit Exceeded \markdownRendererAmpersand{} Imprime más líneas de lo esperado.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}PE \markdownRendererAmpersand{} Presentation Error \markdownRendererAmpersand{} Saltos de línea o espacios extra.\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}AC \markdownRendererAmpersand{} Accepted \markdownRendererAmpersand{} El código fue aceptado.\markdownRendererBackslash{}tabularnewline\markdownRendererBackslash{}end\markdownRendererLeftBrace{}mdtable3\markdownRendererRightBrace{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Compilación}\markdownRendererInterblockSeparator
+{}\markdownRendererBackslash{}begin\markdownRendererLeftBrace{}mdtable3\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}rowcolor\markdownRendererLeftBrace{}headergray\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Sistema Operativo\markdownRendererRightBrace{} \markdownRendererAmpersand{} \markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Acción\markdownRendererRightBrace{} \markdownRendererAmpersand{} \markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Comando\markdownRendererRightBrace{}\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Linux/Mac OS \markdownRendererAmpersand{} Compilar \markdownRendererAmpersand{} g++ -o <problem> <problem>.cpp\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Windows \markdownRendererAmpersand{} Compilar \markdownRendererAmpersand{} g++ -o <problem> <problem>.cpp\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Linux/Mac OS \markdownRendererAmpersand{} Ejecutar \markdownRendererAmpersand{} <problem>\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Windows \markdownRendererAmpersand{} Ejecutar \markdownRendererAmpersand{} <problem> .exe\markdownRendererBackslash{}tabularnewline\markdownRendererBackslash{}end\markdownRendererLeftBrace{}mdtable3\markdownRendererRightBrace{}\markdownRendererParagraphSeparator
+{}Para activar todas las advertencias o establecer una versión de C++ agrega los flags:\markdownRendererParagraphSeparator
+{}\markdownRendererStrongEmphasis{-Wall -Wextra -std=c++<version>}:\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/a4bc4cb6cb013afe8c2f1ac5f7373f0e.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Lectura}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Strings con espacios}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/ba6df3695673dfd3f1efeef9988309ff.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Limpiar buffer}\markdownRendererInterblockSeparator
+{}Si se alterna con lectura de enteros, en ocasiones se guardara el último salto de línea, por lo que será necesario limpiar el buffer.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/17137cea55572a9d7c3fe17a8c29a1cb.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{End of File}\markdownRendererInterblockSeparator
+{}Si la cantidad de entrada es desconocida, leer hasta el final del archivo\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c11393b1aa3f30c728313688ed568e61.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Archivos}\markdownRendererInterblockSeparator
+{}Redirgir la entrada y salida a archivos\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/fa94a09e1291be07e2aaf8f4fea3d179.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

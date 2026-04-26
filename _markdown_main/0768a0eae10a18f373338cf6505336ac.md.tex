@@ -1,0 +1,25 @@
+\markdownRendererDocumentBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingOne{Range Queries}\markdownRendererParagraphSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Segment Tree}\markdownRendererInterblockSeparator
+{}Un segment tree es una estructura de datos flexible que permite responder consultas sobre rangos (como suma, mínimo o máximo) y actualizar valores en un arreglo en tiempo logarítmico. Divide el arreglo en segmentos (intervalos) y almacena información agregada de cada uno, lo que permite combinar resultados de subsegmentos para responder consultas sobre cualquier rango. Es ideal cuando hay muchas actualizaciones entre consultas.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/f9462dd2df8c09e4dc691f74717725fb.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Sparse Table}\markdownRendererInterblockSeparator
+{}Una sparse table también sirve para responder consultas sobre rangos, pero es inmutable: solo funciona cuando el arreglo no cambia. Precalcula todas las respuestas posibles para rangos de tamaño potencia de dos, lo que permite responder consultas en tiempo constante combinando solo dos intervalos. Es perfecta para consultas rápidas sin actualizaciones, como mínimo o máximo en rango.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c075cdaefaf946baab1a35f0c3677851.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererBackslash{}clearpage\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Fenwick Tree}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/9a7a25f38c39d620399eb9ec48905593.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererBackslash{}clearpage\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Index Compression}\markdownRendererInterblockSeparator
+{}La compresión de índices transforma valores grandes o dispersos en un rango pequeño y continuo, preservando el orden relativo. Es útil cuando los valores son grandes (por ejemplo, hasta \markdownRendererDollarSign{}10\markdownRendererCircumflex{}9\markdownRendererDollarSign{}) pero solo se usan unos pocos, permitiendo usar estructuras como Fenwick o Segment Trees sin desperdiciar memoria. Se logra ordenando los valores únicos y reemplazando cada valor original por su posición comprimida.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/c0e20c6c81ca07953003b2dec8b669ab.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd

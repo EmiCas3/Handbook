@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{fullpage}
+\usepackage[numbers]{natbib}
+
+% Primero markdown
+\usepackage[fencedCode,inlineNotes,citations,definitionLists,hashEnumerators,smartEllipses,pipeTables,tableCaptions]{markdown}
+
+% Luego estilos
+\input{style.tex}
+
+\title{\textbf{Competitive Programming Handbook}}
+\author{Ing. Felipe Rafael Focil Mendoza \\
+\small Co-editores: Fernanda Avedaño y Emiliano Castaños}
+\date{Versión 2.0 \\[4pt] \today}
+
+% Normalización de Unicode y avisos de composición
+\providecommand{\DeclareUnicodeCharacter}[2]{}
+\DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+\DeclareUnicodeCharacter{221E}{\ensuremath{\infty}}
+\DeclareUnicodeCharacter{03B8}{\ensuremath{\theta}}
+\DeclareUnicodeCharacter{FFFD}{?}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{FE0F}{}
+\DeclareUnicodeCharacter{20E3}{}
+\hbadness=10000
+\vbadness=10000
+\hfuzz=200pt
+\vfuzz=200pt
+
+\begin{document}
+
+\maketitle
+\clearpage
+\tableofcontents
+\clearpage
+
+\clearpage
+
+\markdownInput{00-legal/01_legal.md}
+
+\markdownInput{01-fundamentos/01_intro.md}
+\markdownInput{01-fundamentos/02_atajos.md}
+\clearpage
+\markdownInput{01-fundamentos/03_plantilla.md}
+\clearpage
+\markdownInput{01-fundamentos/04_precision.md}
+\markdownInput{01-fundamentos/06_manipulacion_bits.md}
+\markdownInput{02-ordenamiento_busqueda/01-ordenamiento.md}
+\clearpage
+\markdownInput{03-matematicas/02_combinatoria.md}
+\markdownInput{03-matematicas/05_aritmetica_modular.md}
+\markdownInput{03-matematicas/07_teoria_numeros.md}
+\markdownInput{04-data_structures/01-Dynamic_arrays.md}
+\clearpage
+\markdownInput{05-dp/01_dp.md}
+\clearpage
+\markdownInput{06-grafos/01_grafos.md}
+\markdownInput{06-grafos/02_mst.md}
+\markdownInput{06-grafos/03_grafos avanzados.md}
+\markdownInput{07-misc/01-misc.md}
+\markdownInput{09_RangeQuery/01_ST.md}
+\markdownInput{10-arboles/01_arboles.md}
+\markdownInput{10-arboles/03_trie.md}
+\markdownInput{10-arboles/05_rootear_arbol.md}
+\markdownInput{10-arboles/06_isomorficos.md}
+\markdownInput{10-arboles/08_tajan.md}
+\markdownInput{11-miscelanios/01-formulas.md}
+\markdownInput{11-miscelanios/99_tablas.md}
+\markdownInput{12-LegacyHandbook/01_Meet_in_the_middle.md}
+\markdownInput{12-LegacyHandbook/02_Algoritmo_Mo.md}
+\markdownInput{12-LegacyHandbook/03_Kadane.md}
+\markdownInput{12-LegacyHandbook/04_Binary_Lifting.md}
+\markdownInput{12-LegacyHandbook/05_KMP.md}
+\markdownInput{12-LegacyHandbook/06_Manacher.md}
+\markdownInput{12-LegacyHandbook/07_Longest_Common_Subsequence.md}
+\markdownInput{12-LegacyHandbook/08_Rootear_Arbol.md}
+\markdownInput{12-LegacyHandbook/09_Arboles_Isomorficos.md}
+\markdownInput{12-LegacyHandbook/10_Tarjan.md}
+\markdownInput{13_Legacy_geometry/01_geometria.md}
+
+
+\end{document}

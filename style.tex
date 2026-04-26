@@ -1,0 +1,100 @@
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% -----------------------------------
+% Colores y estilo de bloques de código
+% -----------------------------------
+\usepackage{xcolor}
+\usepackage{xkeyval}
+\usepackage{inconsolata}
+
+\definecolor{codebg}{HTML}{F9F9F9}       % fondo gris
+\definecolor{codeborder}{HTML}{000000}   % borde negro
+\definecolor{keyword}{HTML}{005CC5}      % keywords azul
+\definecolor{string}{HTML}{22863A}       % strings verde
+\definecolor{codecomment}{HTML}{6A737D}  % comentarios gris
+
+% -----------------------------------
+% Espaciado y sin indentación
+% -----------------------------------
+\setlength{\parindent}{0pt}  % elimina tabs al inicio
+\setlength{\parskip}{2mm}    % espacio entre párrafos
+
+% -----------------------------------
+% Tablas Markdown con bordes completos y filas alternadas
+% -----------------------------------
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{etoolbox}
+
+\definecolor{rowgray}{HTML}{F2F2F2}      % color fila alternada
+\definecolor{headergray}{HTML}{D9D9D9}   % color header
+
+% -----------------------------------
+% Configuración de minted y markdown (segura para Overleaf)
+% -----------------------------------
+
+
+% -----------------------------------
+% Tablas Markdown de 2 a 5 columnas
+% -----------------------------------
+\newenvironment{mdtable2}[1][]{
+  \begin{center}
+  \rowcolors{2}{rowgray}{white}          
+  \setlength{\arrayrulewidth}{0.6pt}    
+  \setlength{\tabcolsep}{6pt}           
+  \renewcommand{\arraystretch}{1.2}     
+  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
+}{
+  \end{tabular}
+  \end{center}
+}
+
+\newenvironment{mdtable3}[1][]{
+  \begin{center}
+  \rowcolors{2}{rowgray}{white}          
+  \setlength{\arrayrulewidth}{0.6pt}    
+  \setlength{\tabcolsep}{6pt}           
+  \renewcommand{\arraystretch}{1.2}     
+  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
+}{
+  \end{tabular}
+  \end{center}
+}
+
+\newenvironment{mdtable4}[1][]{
+  \begin{center}
+  \rowcolors{2}{rowgray}{white}          
+  \setlength{\arrayrulewidth}{0.6pt}    
+  \setlength{\tabcolsep}{6pt}           
+  \renewcommand{\arraystretch}{1.2}     
+  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
+}{
+  \end{tabular}
+  \end{center}
+}
+
+\newenvironment{mdtable5}[1][]{
+  \begin{center}
+  \rowcolors{2}{rowgray}{white}          
+  \setlength{\arrayrulewidth}{0.6pt}    
+  \setlength{\tabcolsep}{6pt}           
+  \renewcommand{\arraystretch}{1.2}     
+  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
+}{
+  \end{tabular}
+  \end{center}
+}
+
+% Asegurar que los encabezados de markdown generen TOC correctamente
+\renewcommand{\markdownWarning}[1]{}
+\markdownSetup{
+  cacheDir = _markdown_cache,
+  rendererPrototypes = {
+    headingOne = {\section{#1}},
+    headingTwo = {\subsection{#1}},
+    headingThree = {\subsubsection{#1}},
+    inputFencedCode = {\VerbatimInput{#1}},
+    codeSpan = {\texttt{#1}},
+  }
+}

@@ -1,0 +1,73 @@
+\markdownRendererDocumentBegin
+\markdownRendererSectionBegin
+\markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Manipulación de Bits}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Operadores AND, OR y XOR}\markdownRendererInterblockSeparator
+{}\markdownRendererBackslash{}begin\markdownRendererLeftBrace{}mdtable2\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}rowcolor\markdownRendererLeftBrace{}headergray\markdownRendererRightBrace{}\markdownRendererSoftLineBreak
+{}\markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Operación\markdownRendererRightBrace{} \markdownRendererAmpersand{} \markdownRendererBackslash{}textbf\markdownRendererLeftBrace{}Resultado\markdownRendererRightBrace{}\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}AND \markdownRendererAmpersand{} Devuelve 1 solo si ambos bits son 1, 0 en otro caso\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}OR  \markdownRendererAmpersand{} Devuelve 1 si al menos un bit es 1, 0 si ambos son 0\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}XOR \markdownRendererAmpersand{} Devuelve 1 si los bits son diferentes, 0 si son iguales\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}NOT \markdownRendererAmpersand{} Invierte los bits: 1 → 0, 0 → 1\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Desplazamiento izquierda \markdownRendererAmpersand{} Mueve los bits a la izquierda, agregando ceros a la derecha\markdownRendererBackslash{}tabularnewline\markdownRendererSoftLineBreak
+{}Desplazamiento derecha \markdownRendererAmpersand{} Mueve los bits a la derecha, agregando ceros o unos según el tipo de dato\markdownRendererBackslash{}tabularnewline\markdownRendererBackslash{}end\markdownRendererLeftBrace{}mdtable2\markdownRendererRightBrace{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/9e507fe0940335f89c4b000dee781112.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererDollarSign{}\markdownRendererBackslash{}clearpage\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingTwo{Bitset}\markdownRendererInterblockSeparator
+{}Bitset es una estructura que permite una manipulación de bits más sencilla en cuestion de código y permite trabajar con cadenas de bits mayores a un long long int (64).\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e023b61b94bbd0af3e39aefc8675e809.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingThree{Entero a binario}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/3dad401ae096248e33c5ae46239b0726.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Binario a entero}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/620d940a29ab2531891a40a1eb29dfc6.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Mascara de bits}\markdownRendererInterblockSeparator
+{}Una máscara de bits de la forma 1 << k tiene un bit en 1 en la posición k y todos los demás bits en 0, por lo que podemos usar estas máscaras para acceder a bits individuales de los números. En particular, el k-ésimo bit de un número es 1 exactamente cuando \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (1 << k)} no es cero.\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/7497c69c453955c0c273c637cb7d6fde.verbatim}{cpp}{cpp}\markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Iterar sobre todas las mascasras de tamaño N}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/e7c3a5a89eecc8d25197a2a2c686e747.verbatim}{cpp}{cpp}\markdownRendererParagraphSeparator
+{}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererSectionBegin
+\markdownRendererHeadingThree{Propiedades}\markdownRendererParagraphSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem Comprobar si un número es par: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} 1}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Encender el \markdownRendererDollarSign{}k\markdownRendererDollarSign{}-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererPipe{} (1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Apagar el \markdownRendererDollarSign{}k\markdownRendererDollarSign{}-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} \markdownRendererTilde{}(1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Invertir el \markdownRendererDollarSign{}k\markdownRendererDollarSign{}-ésimo bit: \markdownRendererCodeSpan{x \markdownRendererCircumflex{} (1 << k)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Poner a 0 el último bit en 1: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (x - 1)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Poner a 0 todos los bits en 1, excepto el último: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} -x}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Invertir todos los bits después del último bit en 1: \markdownRendererCodeSpan{x \markdownRendererPipe{} (x - 1)}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Multiplicar por \markdownRendererDollarSign{}2\markdownRendererCircumflex{}n\markdownRendererDollarSign{}:\markdownRendererCodeSpan{x << n}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Dividir por \markdownRendererDollarSign{}2\markdownRendererCircumflex{}n\markdownRendererDollarSign{}:\markdownRendererCodeSpan{x >> n}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Comprobar si un número positivo es potencia de dos: \markdownRendererCodeSpan{x \markdownRendererAmpersand{} (x - 1) == 0}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererSectionBegin
+\markdownRendererHeadingFour{Codigo de Gray}\markdownRendererInterblockSeparator
+{}El código Gray es un sistema numérico en el que los números consecutivos difieren en un solo bit.Cada\markdownRendererSoftLineBreak
+{}número en el código Gray se representa en binario, donde un bit cambia su estado entre números\markdownRendererSoftLineBreak
+{}consecutivos, lo que facilita la detección y corrección de errores.\markdownRendererParagraphSeparator
+{}Para convertir un número binario a código Gray, si definimos \markdownRendererDollarSign{}X\markdownRendererUnderscore{}2\markdownRendererDollarSign{} de \markdownRendererDollarSign{}N\markdownRendererDollarSign{} bits como \markdownRendererDollarSign{}B\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-1\markdownRendererRightBrace{}\markdownRendererDollarSign{}, \markdownRendererDollarSign{}B\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-2\markdownRendererRightBrace{}\markdownRendererDollarSign{},\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}B\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-3\markdownRendererRightBrace{}\markdownRendererDollarSign{}, \markdownRendererEllipsis{}, \markdownRendererDollarSign{}B\markdownRendererUnderscore{}0\markdownRendererDollarSign{} y su código de Gray como \markdownRendererDollarSign{}G\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-1\markdownRendererRightBrace{}\markdownRendererDollarSign{}, \markdownRendererDollarSign{}G\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-2\markdownRendererRightBrace{}\markdownRendererDollarSign{}, \markdownRendererDollarSign{}G\markdownRendererUnderscore{}\markdownRendererLeftBrace{}N-3\markdownRendererRightBrace{}\markdownRendererDollarSign{}, \markdownRendererEllipsis{}, \markdownRendererDollarSign{}G\markdownRendererUnderscore{}0\markdownRendererDollarSign{}, entonces:\markdownRendererParagraphSeparator
+{}\markdownRendererDollarSign{}G\markdownRendererUnderscore{}n = B\markdownRendererUnderscore{}n \markdownRendererBackslash{}text\markdownRendererLeftBrace{} para \markdownRendererRightBrace{} n = N-1 \markdownRendererDollarSign{} \markdownRendererDollarSign{}G\markdownRendererUnderscore{}i = G\markdownRendererUnderscore{}\markdownRendererLeftBrace{}i+1\markdownRendererRightBrace{} \markdownRendererBackslash{}oplus B\markdownRendererUnderscore{}i \markdownRendererBackslash{}text\markdownRendererLeftBrace{}para \markdownRendererRightBrace{} i = N-2, N-3, \markdownRendererBackslash{}ldots, 0\markdownRendererDollarSign{}\markdownRendererParagraphSeparator
+{}Por ejemplo, si \markdownRendererDollarSign{}10\markdownRendererUnderscore{}2 = 1010\markdownRendererDollarSign{}, donde \markdownRendererDollarSign{}B\markdownRendererUnderscore{}3 = 1\markdownRendererDollarSign{}, \markdownRendererDollarSign{}B\markdownRendererUnderscore{}2 = 0\markdownRendererDollarSign{}, \markdownRendererDollarSign{}B\markdownRendererUnderscore{}1 = 1\markdownRendererDollarSign{} y \markdownRendererDollarSign{}B\markdownRendererUnderscore{}0 = 0\markdownRendererDollarSign{}, entonces:\markdownRendererSoftLineBreak
+{}\markdownRendererDollarSign{}G\markdownRendererUnderscore{}3 = B\markdownRendererUnderscore{}3 = 1\markdownRendererDollarSign{} \markdownRendererDollarSign{}G\markdownRendererUnderscore{}2 = G\markdownRendererUnderscore{}3 \markdownRendererBackslash{}oplus B\markdownRendererUnderscore{}2 = 1 \markdownRendererBackslash{}oplus 0 = 1\markdownRendererDollarSign{} \markdownRendererDollarSign{}G\markdownRendererUnderscore{}1 = G\markdownRendererUnderscore{}2 \markdownRendererBackslash{}oplus B\markdownRendererUnderscore{}1 = 0 \markdownRendererBackslash{}oplus 1 = 1\markdownRendererDollarSign{} \markdownRendererDollarSign{}G\markdownRendererUnderscore{}0 =\markdownRendererSoftLineBreak
+{}G\markdownRendererUnderscore{}1 \markdownRendererBackslash{}oplus B\markdownRendererUnderscore{}0 = 1 \markdownRendererBackslash{}oplus 0 = 1\markdownRendererDollarSign{}\markdownRendererSoftLineBreak
+{}Es decir, convertir el número binario \markdownRendererDollarSign{}1010\markdownRendererDollarSign{} a código de Gray daría como resultado \markdownRendererDollarSign{}1111\markdownRendererDollarSign{}, y \markdownRendererDollarSign{}Gray(10) =\markdownRendererSoftLineBreak
+{}15\markdownRendererDollarSign{}.\markdownRendererParagraphSeparator
+{}\markdownRendererDollarSign{}Gray(n) = n \markdownRendererBackslash{}oplus (n \markdownRendererBackslash{}gg 1)\markdownRendererDollarSign{}\markdownRendererInterblockSeparator
+{}\markdownRendererInputFencedCode{./_markdown_main/3b4637360844de4975c204e79c25e7d1.verbatim}{cpp}{cpp}
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd 
+\markdownRendererSectionEnd \markdownRendererDocumentEnd
