@@ -1,0 +1,74 @@
+{
+  // ---------------------------------------------------------------
+  //  LaTeX Workshop – Handbook configuration
+  //  Extension: James-Yu.latex-workshop
+  // ---------------------------------------------------------------
+
+  // Build tools — uses pdflatex directly (latexmk not required)
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-shell-escape",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+
+  // Two passes so TOC + hyperref bookmarks are correct
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Handbook (2x pdflatex)",
+      "tools": ["pdflatex", "pdflatex"]
+    },
+    {
+      "name": "Handbook draft (1x pdflatex)",
+      "tools": ["pdflatex"]
+    }
+  ],
+
+  // Default recipe
+  "latex-workshop.latex.recipe.default": "Handbook (2x pdflatex)",
+  // Tell the extension not to fall back to latexmk when a recipe finishes
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  // Output stays next to main.tex (easier to find)
+  "latex-workshop.latex.outDir": "%DIR%",
+
+  // PDF preview inside VSCode
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // Clean these files after each build (keep PDF + synctex)
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind",
+    "*.lof", "*.lot", "*.out", "*.toc",
+    "*.fls", "*.log", "*.fdb_latexmk",
+    "*.snm", "*.nav",
+    "*.markdown.out", "*.markdown.lua"
+  ],
+
+  // Don't wipe the markdown cache folder between builds
+  // (it makes incremental builds much faster)
+  "latex-workshop.latex.clean.subfolder.enabled": false,
+
+  // Show compilation errors in the Problems panel
+  "latex-workshop.message.error.show": true,
+  "latex-workshop.message.warning.show": false,
+
+  // Editor tweaks for .tex and .md
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": false,
+    "editor.rulers": [100]
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": { "other": false }
+  }
+}

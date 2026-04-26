@@ -1,100 +1,168 @@
+% =============================================================
+%  style.tex  -  Handbook visual style
+% =============================================================
+
+% ------------------------------------------------------------------
+% 1. TYPOGRAPHY
+% ------------------------------------------------------------------
+\usepackage[protrusion=true,expansion=false]{microtype}
+
+\IfFileExists{inconsolata.sty}{%
+  \usepackage[scaled=0.92]{inconsolata}%
+}{%
+  \usepackage{courier}%
+}
+
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 
-% -----------------------------------
-% Colores y estilo de bloques de código
-% -----------------------------------
+% ------------------------------------------------------------------
+% 2. SPACING
+% ------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2.5mm}
+
+% ------------------------------------------------------------------
+% 3. COLORS
+% ------------------------------------------------------------------
 \usepackage{xcolor}
-\usepackage{xkeyval}
-\usepackage{inconsolata}
 
-\definecolor{codebg}{HTML}{F9F9F9}       % fondo gris
-\definecolor{codeborder}{HTML}{000000}   % borde negro
-\definecolor{keyword}{HTML}{005CC5}      % keywords azul
-\definecolor{string}{HTML}{22863A}       % strings verde
-\definecolor{codecomment}{HTML}{6A737D}  % comentarios gris
+\definecolor{codebg}     {HTML}{F6F8FA}
+\definecolor{codeborder} {HTML}{D0D7DE}
+\definecolor{kw}         {HTML}{CF222E}
+\definecolor{str}        {HTML}{0A3069}
+\definecolor{cmt}        {HTML}{6E7781}
+\definecolor{rowgray}    {HTML}{F2F2F2}
+\definecolor{headergray} {HTML}{D9D9D9}
+\definecolor{linkcolor}  {HTML}{0550AE}
 
-% -----------------------------------
-% Espaciado y sin indentación
-% -----------------------------------
-\setlength{\parindent}{0pt}  % elimina tabs al inicio
-\setlength{\parskip}{2mm}    % espacio entre párrafos
+% ------------------------------------------------------------------
+% 4. HYPERREF
+% ------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = linkcolor,
+  urlcolor   = linkcolor,
+  citecolor  = linkcolor,
+  pdftitle   = {Competitive Programming Handbook},
+  pdfauthor  = {Felipe Rafael Focil Mendoza},
+}
+\usepackage{bookmark}
 
-% -----------------------------------
-% Tablas Markdown con bordes completos y filas alternadas
-% -----------------------------------
+% ------------------------------------------------------------------
+% 5. CODE BLOCKS
+%    Uses a custom CPP language to avoid listings' broken directive
+%    parser which conflicts with C++ template angle-brackets <>.
+% ------------------------------------------------------------------
+\usepackage{listings}
+\usepackage{fvextra}
+\usepackage[most]{tcolorbox}
+
+% Custom CPP language: no preprocessor directives, safe with templates
+\lstdefinelanguage{CPP}{
+  sensitive   = true,
+  morecomment = [l]{//},
+  morecomment = [s]{/*}{*/},
+  morestring  = [b]",
+  morestring  = [b]',
+  keywords    = {auto,break,case,catch,class,const,constexpr,continue,
+                 default,delete,do,else,enum,explicit,extern,false,for,
+                 friend,goto,if,inline,int,long,mutable,namespace,new,
+                 noexcept,nullptr,operator,private,protected,public,
+                 register,return,short,signed,sizeof,static,struct,
+                 switch,template,this,throw,true,try,typedef,typename,
+                 union,unsigned,using,virtual,void,volatile,while,
+                 bool,char,double,float,string,vector,map,set,pair,
+                 queue,stack,deque,list,array,bitset,priority_queue,
+                 unordered_map,unordered_set,multimap,multiset,
+                 ll,vi,vvi,vl,pi,u64,ull,define,include},
+}
+
+\lstdefinestyle{cppstyle}{
+  language         = CPP,
+  basicstyle       = \ttfamily\small,
+  keywordstyle     = \bfseries\color{kw},
+  stringstyle      = \color{str},
+  commentstyle     = \itshape\color{cmt},
+  breaklines       = true,
+  breakatwhitespace= true,
+  tabsize          = 4,
+  showstringspaces = false,
+  frame            = none,
+  aboveskip        = 0pt,
+  belowskip        = 0pt,
+  xleftmargin      = 0pt,
+  % Spanish chars in code comments
+  literate =
+    {á}{{\'{a}}}1 {é}{{\'{e}}}1 {í}{{\'{i}}}1 {ó}{{\'{o}}}1 {ú}{{\'{u}}}1
+    {Á}{{\'{A}}}1 {É}{{\'{E}}}1 {Í}{{\'{I}}}1 {Ó}{{\'{O}}}1 {Ú}{{\'{U}}}1
+    {ñ}{{\~{n}}}1 {Ñ}{{\~{N}}}1
+    {θ}{{\ensuremath{\theta}}}1,
+}
+
+% \codeInput{filename} - renders a .verbatim file in a styled box
+\newcommand{\codeInput}[1]{%
+  \tcbinputlisting{
+    listing only,
+    listing options = {style=cppstyle},
+    colback  = codebg,
+    colframe = codeborder,
+    arc      = 3pt,
+    boxrule  = 0.5pt,
+    left=6pt, right=6pt, top=4pt, bottom=4pt,
+    before skip=4pt, after skip=6pt,
+    breakable,
+    listing file = {#1}
+  }%
+}
+
+% Inline code pill
+\newcommand{\codeinline}[1]{%
+  \tcbox[on line,
+    colback=codebg, colframe=codeborder,
+    arc=2pt, boxrule=0.4pt,
+    left=1pt, right=1pt, top=0pt, bottom=0pt,
+    boxsep=1pt]{\ttfamily\small #1}}
+
+% ------------------------------------------------------------------
+% 6. TABLES
+% ------------------------------------------------------------------
 \usepackage{colortbl}
 \usepackage{array}
 \usepackage{etoolbox}
 
-\definecolor{rowgray}{HTML}{F2F2F2}      % color fila alternada
-\definecolor{headergray}{HTML}{D9D9D9}   % color header
-
-% -----------------------------------
-% Configuración de minted y markdown (segura para Overleaf)
-% -----------------------------------
-
-
-% -----------------------------------
-% Tablas Markdown de 2 a 5 columnas
-% -----------------------------------
-\newenvironment{mdtable2}[1][]{
-  \begin{center}
-  \rowcolors{2}{rowgray}{white}          
-  \setlength{\arrayrulewidth}{0.6pt}    
-  \setlength{\tabcolsep}{6pt}           
-  \renewcommand{\arraystretch}{1.2}     
-  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
-}{
-  \end{tabular}
-  \end{center}
+\newcommand{\mdtabularopen}[1]{%
+  \begin{center}%
+  \rowcolors{2}{rowgray}{white}%
+  \setlength{\arrayrulewidth}{0.6pt}%
+  \setlength{\tabcolsep}{6pt}%
+  \renewcommand{\arraystretch}{1.25}%
+  \begin{tabular}{#1}%
 }
+\newcommand{\mdtabularclose}{\end{tabular}\end{center}}
 
-\newenvironment{mdtable3}[1][]{
-  \begin{center}
-  \rowcolors{2}{rowgray}{white}          
-  \setlength{\arrayrulewidth}{0.6pt}    
-  \setlength{\tabcolsep}{6pt}           
-  \renewcommand{\arraystretch}{1.2}     
-  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
-}{
-  \end{tabular}
-  \end{center}
-}
+\newcolumntype{H}{>{\columncolor{headergray}\centering\arraybackslash}c}
+\newcolumntype{C}{>{\centering\arraybackslash}c}
 
-\newenvironment{mdtable4}[1][]{
-  \begin{center}
-  \rowcolors{2}{rowgray}{white}          
-  \setlength{\arrayrulewidth}{0.6pt}    
-  \setlength{\tabcolsep}{6pt}           
-  \renewcommand{\arraystretch}{1.2}     
-  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
-}{
-  \end{tabular}
-  \end{center}
-}
+\newenvironment{mdtable2}[1][]{\mdtabularopen{|H|C|}}       {\mdtabularclose}
+\newenvironment{mdtable3}[1][]{\mdtabularopen{|H|C|C|}}     {\mdtabularclose}
+\newenvironment{mdtable4}[1][]{\mdtabularopen{|H|C|C|C|}}   {\mdtabularclose}
+\newenvironment{mdtable5}[1][]{\mdtabularopen{|H|C|C|C|C|}} {\mdtabularclose}
 
-\newenvironment{mdtable5}[1][]{
-  \begin{center}
-  \rowcolors{2}{rowgray}{white}          
-  \setlength{\arrayrulewidth}{0.6pt}    
-  \setlength{\tabcolsep}{6pt}           
-  \renewcommand{\arraystretch}{1.2}     
-  \begin{tabular}{|>{\columncolor{headergray}\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|>{\centering\arraybackslash}c|}
-}{
-  \end{tabular}
-  \end{center}
-}
-
-% Asegurar que los encabezados de markdown generen TOC correctamente
+% ------------------------------------------------------------------
+% 7. MARKDOWN RENDERER
+% ------------------------------------------------------------------
 \renewcommand{\markdownWarning}[1]{}
+
 \markdownSetup{
   cacheDir = _markdown_cache,
   rendererPrototypes = {
-    headingOne = {\section{#1}},
-    headingTwo = {\subsection{#1}},
+    headingOne   = {\section{#1}},
+    headingTwo   = {\subsection{#1}},
     headingThree = {\subsubsection{#1}},
-    inputFencedCode = {\VerbatimInput{#1}},
-    codeSpan = {\texttt{#1}},
+    headingFour  = {\paragraph{#1}\mbox{}\\},
+    inputFencedCode = {\codeInput{#1}},
+    codeSpan        = {\codeinline{#1}},
   }
 }
