@@ -1,3 +1,4 @@
+$\clearpage$
 # Aviso de derechos de autor y uso
 
 © 2025 Felipe Focil. Todos los derechos reservados.
@@ -52,3 +53,5 @@ El objetivo del Competitive Programming Handbook es ofrecer una recopilación pr
 A menudo, los estudiantes poseen el conocimiento teórico necesario, pero bajo las condiciones de alta presión típicas de la competencia, la implementación puede tornarse imprecisa o lenta.
 
 Este handbook busca servir como una guía de referencia rápida y confiable, reuniendo plantillas, técnicas y algoritmos frecuentemente utilizados por equipos universitarios durante el entrenamiento y las competencias.
+
+$\clearpage$

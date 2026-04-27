@@ -212,6 +212,7 @@ void dfs(int s, vvi &graph)
 }
 ```
 $\clearpage$
+
 ## Comprobaciones
 
 ### Conectividad
@@ -281,6 +282,7 @@ bool hasCycle(vvi &graph)
 ```
 
 $\clearpage$
+
 ### Bipartito
 
 Un grafo es bipartito si sus nodos pueden colorearse con dos colores de forma que ningún par de nodos adyacentes tenga el mismo color.
@@ -460,6 +462,7 @@ vi topologicalSort(vvi &graph, int n)
   return order;
 }
 ```
+
 $\clearpage$
 
 ## Dynamic Programming for Graphs
@@ -573,7 +576,9 @@ int findCycle(int x, vi &succ, int &len)
   return first;
 }
 ```
+
 $\clearpage$
+
 ### Puentes 
 
 Un puente en un grafo es una arista cuya eliminación dividiría el grafo en dos o más componentes conexas adicionales.

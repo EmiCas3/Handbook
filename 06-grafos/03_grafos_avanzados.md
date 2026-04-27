@@ -263,7 +263,9 @@ vi hamiltonian_path(vvi &graph)
   return {};
 }
 ```
+
 $\clearpage$
+
 ### De Bruijn Sequences  
 Una **secuencia de De Bruijn** es una cadena que contiene **todas las posibles subcadenas de longitud $n$** exactamente una vez, usando un alfabeto de $k$ símbolos.  
 La longitud total es $k^n + n - 1$.  

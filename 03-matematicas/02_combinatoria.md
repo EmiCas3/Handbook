@@ -49,7 +49,9 @@ vvi getCombs(vi &arr, int k) {
     return ans;
 }
 ```
+
 $\clearpage$
+
 # Permutaciones
 
 ## Definición general
@@ -103,6 +105,7 @@ vvi getPerms(vi &arr, int k) {
 ```
 
 $\clearpage$
+
 # Propiedades de Combinatoria y Permutaicones
 
 ### Teorema Binomial

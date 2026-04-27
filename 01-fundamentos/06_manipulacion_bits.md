@@ -1,3 +1,4 @@
+
 ## Manipulación de Bits
 
 ### Operadores AND, OR y XOR
@@ -45,6 +46,7 @@ int main() {
 ```
 
 $\clearpage$
+
 ## Bitset
 
 Bitset es una estructura que permite una manipulación de bits más sencilla en cuestion de código y permite trabajar con cadenas de bits mayores a un long long int (64).

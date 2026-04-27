@@ -1,4 +1,6 @@
+
 $\clearpage$
+
 ## Sucesiones
 \begin{align*}
 \text{Números de Fibonacci:} & \quad F(n) = F(n-1) + F(n-2), \quad F(0)=0, \; F(1)=1 \\\\

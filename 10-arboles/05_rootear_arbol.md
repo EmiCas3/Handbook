@@ -1,4 +1,6 @@
+
 $\clearpage$
+
 # Rootaear un arbol desde el centro
 
 ```cpp

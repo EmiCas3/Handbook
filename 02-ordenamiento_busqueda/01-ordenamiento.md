@@ -49,6 +49,7 @@ sort(all(v), comp);
 
 
 $\clearpage$
+
 # Busqueda Binaria
 
 **Idea:** Encontrar un elemento k iterativamente

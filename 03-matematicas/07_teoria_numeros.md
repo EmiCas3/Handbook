@@ -13,6 +13,7 @@ n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}
 $$
 
 $\clearpage$
+
 ### Cantidad de factores
 
 Sea $\tau(n)$ el número de factores de un entero n. Por ejemplo, $\tau(12) = 6$, porque los factores de 12 son 1, 2, 3, 4, 6 y 12. Para calcular el valor de $\tau(n)$, podemos usar la fórmula
@@ -38,7 +39,9 @@ int tau(n)
     return ans;
 }
 ```
+
 $\clearpage$
+
 ## Suma de factores
 Sea $\sigma(n)$ la suma de los factores de un entero n. Por ejemplo, $\sigma(12) = 28$, porque (1 + 2 + 3 + 4 + 6 + 12 = 28). Para calcular el valor de $\sigma(n)$, podemos usar la fórmula
 
@@ -69,6 +72,7 @@ ll sigma(n)
 ```
 
 $\clearpage$
+
 ### Lista de factores
 
 Observa que cada factor primo aparece en el vector tantas veces como divide el número.
@@ -173,6 +177,7 @@ bool MillerRabin(u64 n)
 ```
 
 $\clearpage$
+
 ### Primos como diferencia de cuadrados
 
 
@@ -225,6 +230,7 @@ vi primes(int n)
 ```
 
 $\clearpage$
+
 ### Criba Lineal
 
 **Idea:** Existe una optimización que permite realizar la criba en $O(n)$ a cambio de usar más memoria, que solo debe ser usada si $N \leq 10^7$
@@ -279,6 +285,7 @@ int countPrimes(int l, int r, vi &count)
 ```
 
 $\clearpage$
+
 ### Encontrar primos en un rango
 
 Encontrar primos en un rango
@@ -387,6 +394,7 @@ ll phi(ll n) {
 ```
 
 $\clearpage$
+
 ### Teorema de Euler 
 
 **Teorema de Euler:**
@@ -441,6 +449,7 @@ u64 modInverse(u64 a) {return binpow(a, MOD - 2);}
 ```
 
 $\clearpage$
+
 ## Ecuaciones Diofánticas
 
 Una ecuación diofántica tiene la forma:
@@ -481,6 +490,7 @@ pair<bool, pair<ll,ll>> solve_diophantine(ll a, ll b, ll c) {
 ```
 
 $\clearpage$
+
 ### Teorema Chino del Resto
 
 **Sistema de congruencias:**
@@ -596,6 +606,7 @@ El Teorema de Sprague–Grundy generaliza la estrategia de Nim a cualquier juego
 - Los jugadores tienen información completa y no hay aleatoriedad.
 
 $\clearpage$
+
 ## Números de Grundy
 
 Cada estado del juego se asocia con un **número de Grundy** \(G(s)\), equivalente al tamaño de un heap de Nim.

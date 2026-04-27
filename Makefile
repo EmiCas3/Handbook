@@ -11,15 +11,18 @@ OUT    = .build
 
 export TEXINPUTS := $(CURDIR)/:
 
+# -------------------------------------------------------------
+# FIXED PANDOC FLAGS (IMPORTANT)
+# -------------------------------------------------------------
 PANDOC_FLAGS = \
-  --from=markdown+raw_tex+tex_math_dollars \
+  --from=markdown+raw_tex+tex_math_dollars+fenced_code_blocks+lists_without_preceding_blankline \
   --to=latex \
   --lua-filter=scripts/handbook.lua
 
 .PHONY: all clean cleanall open
 
 # -------------------------------------------------------------
-# 1. Build _tex + input list safely (NO fragile string concat)
+# 1. Build _tex + .inputs.tex
 # -------------------------------------------------------------
 _pandoc:
 > @rm -rf _tex .inputs.tex
@@ -35,46 +38,38 @@ _pandoc:
       echo "Pandoc: $$f -> $$out"; \
       pandoc $(PANDOC_FLAGS) "$$f" -o "$$out"; \
       echo "\\input{$$out}" >> .inputs.tex; \
+      echo "\\clearpage" >> .inputs.tex; \
     done
 
-# -------------------------------------------------------------
-# 2. Inject into main.tex (SAFE awk version)
-# -------------------------------------------------------------
-_generate_main:
-> @awk '\
-    />>> GENERATED_BY_MAKEFILE <<< / { \
-      while ((getline line < ".inputs.tex") > 0) print line; \
-      close(".inputs.tex"); \
-      next; \
-    } \
-    { print } \
-  ' main.tex > main.tmp
-> @mv main.tmp main.tex
+# remove last unwanted \clearpage
+> @sed -i '$$d' .inputs.tex
 
 # -------------------------------------------------------------
-# 3. Compile
+# 2. Compile
 # -------------------------------------------------------------
-all: _pandoc _generate_main
+all: _pandoc
 > @echo "Compiling..."
 > @mkdir -p $(OUT)
-> @$(LATEX) $(FLAGS) -output-directory=$(OUT) main.tex > /dev/null || true
-> @$(LATEX) $(FLAGS) -output-directory=$(OUT) main.tex > /dev/null || true
-> @cp $(OUT)/main.pdf .
-> @echo "Done -> main.pdf"
+
+> @$(LATEX) $(FLAGS) -output-directory=$(OUT) $(MAIN).tex > /dev/null || true
+> @$(LATEX) $(FLAGS) -output-directory=$(OUT) $(MAIN).tex > /dev/null || true
+
+> @cp $(OUT)/$(MAIN).pdf .
+> @echo "Done -> $(MAIN).pdf"
 
 # -------------------------------------------------------------
 # CLEAN
 # -------------------------------------------------------------
 clean:
-> @rm -rf $(OUT) _tex .inputs.tex main.tmp
+> @rm -rf $(OUT) _tex .inputs.tex
 > @echo "Cleaned"
 
 cleanall: clean
-> @rm -f main.pdf
+> @rm -f $(MAIN).pdf
 > @echo "Removed PDF"
 
 # -------------------------------------------------------------
 # OPEN
 # -------------------------------------------------------------
 open:
-> @xdg-open main.pdf 2>/dev/null || echo "Open manually"
+> @xdg-open $(MAIN).pdf 2>/dev/null || echo "Open manually"

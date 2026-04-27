@@ -204,6 +204,7 @@ if (it == s.end()) {
 ```
 
 $\clearpage$
+
 #### Sets ordenados 
 La principal diferencia entre las dos estructuras es que set es ordenado, mientras que unordered_set no lo es.
 
@@ -300,13 +301,15 @@ cout << q.top() << "\n"; // 6
 q.pop();
 ```
 
-Si se desea que la cola devuelva el menor elemento (un min-heap), se puede usar un comparador:
+Si se desea que la cola devuelva el menor elemento (un min-heap), se puede usar un comparador:s
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
 ```
 
 $\clearpage$
+
 ### Policy-Based Sets (Conjuntos Basados en Políticas)
+
 El compilador g++ ofrece estructuras adicionales que no forman parte de la biblioteca estándar de C++, conocidas como policy-based data structures.
 Para utilizarlas se deben incluir las siguientes líneas:
 ```cpp
@@ -331,13 +334,9 @@ s.insert(9);
 Su ventaja es que permite acceder a los elementos por su posición ordenada.
 - `find_by_order(k)` devuelve un iterador al elemento en la posición k (0-indexado).
 - `order_of_key(x)` devuelve cuántos elementos son menores que x.
+
 ```cpp
 auto x = s.find_by_order(2);
 cout << *x << "\n"; // 7
 cout << s.order_of_key(7) << "\n"; // 2
 ```
-
-
-
-
-

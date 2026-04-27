@@ -73,7 +73,9 @@ int main()
   cout<<"Postorder: "; postorder(t,0); cout<<"\n";
 }
 ```
+
 $\clearpage$
+
 # Calculating Tree Diameter
 
 Usa dos DFS para obtener el diámetro del árbol (camino más largo entre dos nodos) en O(n).
@@ -104,7 +106,9 @@ int main()
   cout<<"Diameter: "<<tree_diameter(t)<<"\n";
 }
 ```
+
 $\clearpage$
+
 ## All longest paths
 
 Calcula para cada nodo la distancia máxima a cualquier otro nodo (reroot DP clásico). Complejidad O(n).
