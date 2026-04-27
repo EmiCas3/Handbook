@@ -7,4 +7,7 @@
 *.fdb_latexmk
 *.synctex.gz
 _markdown_cache/
+_tex/
+.build/
+_pandoc_cache/
 

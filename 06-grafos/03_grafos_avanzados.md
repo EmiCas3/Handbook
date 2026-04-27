@@ -1,5 +1,5 @@
 
-$\clearpage$
+$$ \clearpage $$
 
 ### Strong Connectivity
 

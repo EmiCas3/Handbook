@@ -2,6 +2,16 @@
 %  style.tex  -  Handbook visual style
 % =============================================================
 
+% -----------------------------
+% THEME SYSTEM (Makefile driven)
+% -----------------------------
+\providecommand{\THEME}{ide}
+
+\ifdefined\inputtheme
+  \renewcommand{\THEME}{\inputtheme}
+\fi
+
+
 % ------------------------------------------------------------------
 % 1. TYPOGRAPHY
 % ------------------------------------------------------------------
@@ -23,18 +33,94 @@
 \setlength{\parskip}{2.5mm}
 
 % ------------------------------------------------------------------
-% 3. COLORS
-% ------------------------------------------------------------------
+% 3. THEME SYSTEM
 \usepackage{xcolor}
+%    Override from Makefile with: make THEME=print / dark / blue / ide
+%    Default theme: ide  (purple keywords, dark-red strings, green comments)
+% ------------------------------------------------------------------
 
-\definecolor{codebg}     {HTML}{F6F8FA}
-\definecolor{codeborder} {HTML}{D0D7DE}
-\definecolor{kw}         {HTML}{CF222E}
-\definecolor{str}        {HTML}{0A3069}
-\definecolor{cmt}        {HTML}{6E7781}
+% \THEME is injected by the Makefile via \def\THEME{...}
+% If not set, fall back to "ide"
+\providecommand{\THEME}{ide}
+
+% ---- ide (default) -----------------------------------------------
+\definecolor{ide-kw}     {HTML}{7B2FBE}  % purple   - keywords
+\definecolor{ide-str}    {HTML}{A31515}  % dark red  - strings
+\definecolor{ide-cmt}    {HTML}{008000}  % green     - comments
+\definecolor{ide-base}   {HTML}{000000}  % black     - body text
+
+% ---- print (bold black, no color - safe for B&W laser) -----------
+\definecolor{print-kw}   {gray}{0.0}
+\definecolor{print-str}  {gray}{0.0}
+\definecolor{print-cmt}  {gray}{0.45}
+\definecolor{print-base} {gray}{0.0}
+
+% ---- blue --------------------------------------------------------
+\definecolor{blue-kw}    {HTML}{003087}
+\definecolor{blue-str}   {HTML}{0066CC}
+\definecolor{blue-cmt}   {HTML}{5588AA}
+\definecolor{blue-base}  {HTML}{000000}
+
+% ---- dark (dark background, light text) --------------------------
+\definecolor{dark-kw}    {HTML}{569CD6}  % light blue
+\definecolor{dark-str}   {HTML}{CE9178}  % orange
+\definecolor{dark-cmt}   {HTML}{6A9955}  % green
+\definecolor{dark-base}  {HTML}{D4D4D4}  % light gray
+\definecolor{dark-bg}    {HTML}{1E1E1E}  % VS Code dark bg
+\definecolor{dark-border}{HTML}{3C3C3C}
+
+% Shared non-theme colors
+\definecolor{codebg}     {HTML}{F8F8F8}
+\definecolor{codeborder} {HTML}{CCCCCC}
 \definecolor{rowgray}    {HTML}{F2F2F2}
 \definecolor{headergray} {HTML}{D9D9D9}
 \definecolor{linkcolor}  {HTML}{0550AE}
+
+% Resolve active theme colors into single names used by listings
+\def\themeIde{ide}
+\def\themePrint{print}
+\def\themeBlue{blue}
+\def\themeDark{dark}
+
+\ifx\THEME\themeIde
+  \colorlet{kw}      {ide-kw}
+  \colorlet{str}     {ide-str}
+  \colorlet{cmt}     {ide-cmt}
+  \colorlet{codebody}{ide-base}
+  \colorlet{activebg}{codebg}
+  \colorlet{activeborder}{codeborder}
+\else\ifx\THEME\themePrint
+  \colorlet{kw}      {print-kw}
+  \colorlet{str}     {print-str}
+  \colorlet{cmt}     {print-cmt}
+  \colorlet{codebody}{print-base}
+  \colorlet{activebg}{codebg}
+  \colorlet{activeborder}{codeborder}
+\else\ifx\THEME\themeBlue
+  \colorlet{kw}      {blue-kw}
+  \colorlet{str}     {blue-str}
+  \colorlet{cmt}     {blue-cmt}
+  \colorlet{codebody}{blue-base}
+  \colorlet{activebg}{codebg}
+  \colorlet{activeborder}{codeborder}
+\else\ifx\THEME\themeDark
+  \colorlet{kw}      {dark-kw}
+  \colorlet{str}     {dark-str}
+  \colorlet{cmt}     {dark-cmt}
+  \colorlet{codebody}{dark-base}
+  \colorlet{activebg}{dark-bg}
+  \colorlet{activeborder}{dark-border}
+\else
+  % Unknown theme - fall back to ide
+  \colorlet{kw}      {ide-kw}
+  \colorlet{str}     {ide-str}
+  \colorlet{cmt}     {ide-cmt}
+  \colorlet{codebody}{ide-base}
+  \colorlet{activebg}{codebg}
+  \colorlet{activeborder}{codeborder}
+\fi\fi\fi\fi
+
+
 
 % ------------------------------------------------------------------
 % 4. HYPERREF
@@ -81,10 +167,13 @@
 
 \lstdefinestyle{cppstyle}{
   language         = CPP,
-  basicstyle       = \ttfamily\small,
+  basicstyle       = \ttfamily\small\color{codebody},
   keywordstyle     = \bfseries\color{kw},
   stringstyle      = \color{str},
   commentstyle     = \itshape\color{cmt},
+  numbers          = left,
+  numberstyle      = \tiny\ttfamily\color{cmt},
+  numbersep        = 8pt,
   breaklines       = true,
   breakatwhitespace= true,
   tabsize          = 4,
@@ -93,7 +182,7 @@
   aboveskip        = 0pt,
   belowskip        = 0pt,
   xleftmargin      = 0pt,
-  % Spanish chars in code comments
+  % Spanish / Greek chars in code comments
   literate =
     {á}{{\'{a}}}1 {é}{{\'{e}}}1 {í}{{\'{i}}}1 {ó}{{\'{o}}}1 {ú}{{\'{u}}}1
     {Á}{{\'{A}}}1 {É}{{\'{E}}}1 {Í}{{\'{I}}}1 {Ó}{{\'{O}}}1 {Ú}{{\'{U}}}1
@@ -106,8 +195,8 @@
   \tcbinputlisting{
     listing only,
     listing options = {style=cppstyle},
-    colback  = codebg,
-    colframe = codeborder,
+    colback  = activebg,
+    colframe = activeborder,
     arc      = 3pt,
     boxrule  = 0.5pt,
     left=6pt, right=6pt, top=4pt, bottom=4pt,
@@ -120,10 +209,10 @@
 % Inline code pill
 \newcommand{\codeinline}[1]{%
   \tcbox[on line,
-    colback=codebg, colframe=codeborder,
+    colback=activebg, colframe=activeborder,
     arc=2pt, boxrule=0.4pt,
     left=1pt, right=1pt, top=0pt, bottom=0pt,
-    boxsep=1pt]{\ttfamily\small #1}}
+    boxsep=1pt]{\ttfamily\small\color{codebody} #1}}
 
 % ------------------------------------------------------------------
 % 6. TABLES
@@ -150,19 +239,4 @@
 \newenvironment{mdtable4}[1][]{\mdtabularopen{|H|C|C|C|}}   {\mdtabularclose}
 \newenvironment{mdtable5}[1][]{\mdtabularopen{|H|C|C|C|C|}} {\mdtabularclose}
 
-% ------------------------------------------------------------------
-% 7. MARKDOWN RENDERER
-% ------------------------------------------------------------------
-\renewcommand{\markdownWarning}[1]{}
-
-\markdownSetup{
-  cacheDir = _markdown_cache,
-  rendererPrototypes = {
-    headingOne   = {\section{#1}},
-    headingTwo   = {\subsection{#1}},
-    headingThree = {\subsubsection{#1}},
-    headingFour  = {\paragraph{#1}\mbox{}\\},
-    inputFencedCode = {\codeInput{#1}},
-    codeSpan        = {\codeinline{#1}},
-  }
-}
+% (Markdown rendering handled by pandoc + handbook.lua filter)

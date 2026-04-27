@@ -1,52 +1,80 @@
 # =============================================================
-
-# Handbook Makefile (clean output)
-
+# Handbook Makefile - stable markdown → LaTeX pipeline
 # =============================================================
 
 .RECIPEPREFIX := >
 
-MAIN  = main
-LATEX = pdflatex
-FLAGS = -shell-escape -interaction=nonstopmode -synctex=1
-OUT   = .build
+MAIN   = main
+LATEX  = pdflatex
+FLAGS  = -shell-escape -interaction=nonstopmode -synctex=1
+OUT    = .build
 
-.PHONY: all once watch clean cleanall open
+export TEXINPUTS := $(CURDIR)/:
 
-all:
+PANDOC_FLAGS = \
+  --from=markdown+raw_tex+tex_math_dollars \
+  --to=latex \
+  --lua-filter=scripts/handbook.lua
 
-> @echo "Compiling (full build)..."
+.PHONY: all clean cleanall open
+
+# -------------------------------------------------------------
+# 1. Build _tex + input list safely (NO fragile string concat)
+# -------------------------------------------------------------
+_pandoc:
+> @rm -rf _tex .inputs.tex
+> @mkdir -p _tex
+> @: > .inputs.tex
+
+> @find . -name "*.md" -not -path "./_tex/*" | sort | while IFS= read -r f; do \
+      rel="$${f#./}"; \
+      dir=$$(dirname "$$rel"); \
+      base=$$(basename "$$rel" .md); \
+      out="_tex/$$dir/$$base.tex"; \
+      mkdir -p "_tex/$$dir"; \
+      echo "Pandoc: $$f -> $$out"; \
+      pandoc $(PANDOC_FLAGS) "$$f" -o "$$out"; \
+      echo "\\input{$$out}" >> .inputs.tex; \
+    done
+
+# -------------------------------------------------------------
+# 2. Inject into main.tex (SAFE awk version)
+# -------------------------------------------------------------
+_generate_main:
+> @awk '\
+    />>> GENERATED_BY_MAKEFILE <<< / { \
+      while ((getline line < ".inputs.tex") > 0) print line; \
+      close(".inputs.tex"); \
+      next; \
+    } \
+    { print } \
+  ' main.tex > main.tmp
+> @mv main.tmp main.tex
+
+# -------------------------------------------------------------
+# 3. Compile
+# -------------------------------------------------------------
+all: _pandoc _generate_main
+> @echo "Compiling..."
 > @mkdir -p $(OUT)
-> @$(LATEX) $(FLAGS) -output-directory=$(OUT) $(MAIN).tex >/dev/null
-> @$(LATEX) $(FLAGS) -output-directory=$(OUT) $(MAIN).tex >/dev/null
-> @cp $(OUT)/$(MAIN).pdf .
-> @echo "Done -> $(MAIN).pdf"
+> @$(LATEX) $(FLAGS) -output-directory=$(OUT) main.tex > /dev/null || true
+> @$(LATEX) $(FLAGS) -output-directory=$(OUT) main.tex > /dev/null || true
+> @cp $(OUT)/main.pdf .
+> @echo "Done -> main.pdf"
 
-once:
-
-> @echo "Compiling (fast)..."
-> @mkdir -p $(OUT)
-> @$(LATEX) $(FLAGS) -output-directory=$(OUT) $(MAIN).tex >/dev/null
-> @cp $(OUT)/$(MAIN).pdf .
-> @echo "Done -> $(MAIN).pdf"
-
-watch:
-
-> @echo "Watching for changes... (Ctrl-C to stop)"
-> @find . -name "*.md" -o -name "*.tex" | entr -c make once
-
+# -------------------------------------------------------------
+# CLEAN
+# -------------------------------------------------------------
 clean:
-
-> @rm -rf $(OUT)
-> @rm -rf $(OUT) _markdown_cache
-> @echo "Cleaned build files"
+> @rm -rf $(OUT) _tex .inputs.tex main.tmp
+> @echo "Cleaned"
 
 cleanall: clean
-
-> @rm -f $(MAIN).pdf
+> @rm -f main.pdf
 > @echo "Removed PDF"
 
-open: $(MAIN).pdf
-
-> @xdg-open $(MAIN).pdf 2>/dev/null || echo "Open $(MAIN).pdf manually"
-
+# -------------------------------------------------------------
+# OPEN
+# -------------------------------------------------------------
+open:
+> @xdg-open main.pdf 2>/dev/null || echo "Open manually"
