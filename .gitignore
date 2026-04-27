@@ -11,4 +11,4 @@ _tex/
 .build/
 _pandoc_cache/
 
-main.pdf
+.inputs.tex
